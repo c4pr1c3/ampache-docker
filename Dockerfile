@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="lachlan-00"
 
-ARG AMPACHE_VERSION 3.9.0
+ARG AMPACHE_VERSION
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV MYSQL_PASS **Random**
