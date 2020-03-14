@@ -2,9 +2,11 @@
 version: "3"
 services:
   ampache:
-    image: ampache/ampache:$AMPACHE_VERSION
     build: 
       context: .
+      args:
+        AMPACHE_VERSION: 3.9.0
+    image: c4pr1c3/ampache:$AMPACHE_VERSION
     container_name: ampache
     volumes:
       - ./music:/media:ro

@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="lachlan-00"
 
-ARG AMPACHE_VERSION
+ARG AMPACHE_VERSION 3.9.0
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV MYSQL_PASS **Random**
@@ -34,7 +34,7 @@ RUN     mkdir -p /var/run/mysqld \
     &&  mv /var/www/channel/.htac* /var/www/channel/.htaccess
 RUN     chown -R www-data:www-data /var/www \
     &&  chmod -R 775 /var/www \
-    &&  su -s /bin/sh -c 'cd /var/www && composer install --prefer-source --no-interaction' www-data
+    &&  su -s /bin/sh -c 'cd /var/www && composer update nothing && composer install --prefer-source --no-interaction' www-data
 RUN     apt-get purge -q -q -y --autoremove git wget ca-certificates gnupg composer \
     &&  ln -s /etc/apache2/sites-available/001-ampache.conf /etc/apache2/sites-enabled/ \
     &&  a2enmod rewrite \
