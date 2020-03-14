@@ -1,6 +1,8 @@
 FROM ubuntu:18.04
 LABEL maintainer="lachlan-00"
 
+ARG AMPACHE_VERSION
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV MYSQL_PASS **Random**
 
@@ -25,8 +27,8 @@ RUN     apt-get -q -q update \
 RUN     mkdir -p /var/run/mysqld \
     &&  chown -R mysql /var/run/mysqld \
     &&  rm -rf /var/lib/mysql/* /var/www/* /etc/apache2/sites-enabled/* \
-    &&  wget -qO - https://github.com/ampache/ampache/archive/master.tar.gz \
-          | tar -C /var/www -xzf - ampache-master --strip=1 \
+    &&  wget -qO - https://github.com/ampache/ampache/archive/$AMPACHE_VERSION.tar.gz \
+          | tar -C /var/www -xzf - ampache-$AMPACHE_VERSION --strip=1 \
     &&  mv /var/www/rest/.htac* /var/www/rest/.htaccess \
     &&  mv /var/www/play/.htac* /var/www/play/.htaccess \
     &&  mv /var/www/channel/.htac* /var/www/channel/.htaccess

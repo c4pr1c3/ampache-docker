@@ -1,0 +1,15 @@
+---
+version: "3"
+services:
+  ampache:
+    image: ampache/ampache:$AMPACHE_VERSION
+    build: 
+      context: .
+    container_name: ampache
+    volumes:
+      - ./music:/media:ro
+      - ./db:/var/lib/mysql
+      - ./mysql:/etc/mysql
+      - ./www:/var/www
+    ports:
+      - 8090:80
