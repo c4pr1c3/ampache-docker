@@ -12,5 +12,6 @@ script:
   - docker ps | grep ampache_container
 
 env:
+  - AMPACHE_VERSION=3.8.8
   - AMPACHE_VERSION=3.9.0
-  - AMPACHE_VERSION=latest
+  - AMPACHE_VERSION=master
