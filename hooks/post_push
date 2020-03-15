@@ -1,0 +1,9 @@
+#!/bin/bash
+# hooks/post_push
+# https://docs.docker.com/docker-cloud/builds/advanced/
+# https://semver.org/
+
+docker tag $IMAGE_NAME $DOCKER_REPO:$AMPACHE_VERSION
+docker push $DOCKER_REPO:$AMPACHE_VERSION
+
+exit $?
