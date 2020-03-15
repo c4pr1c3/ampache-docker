@@ -13,7 +13,5 @@ services:
     volumes:
       - ./music:/media:ro
       - ./db:/var/lib/mysql
-      - ./mysql:/etc/mysql
-      - ./www:/var/www
     ports:
       - 8090:80
