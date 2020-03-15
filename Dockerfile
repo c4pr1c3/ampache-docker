@@ -13,7 +13,7 @@ COPY ampache.cfg.* /var/temp/
 RUN     chmod 0755 /*.sh \
     &&  chmod +x /*.sh \
     &&  apt-get -q -q update \
-    &&  apt-get -q -q -y install --no-install-recommends wget gnupg ca-certificates \
+    &&  apt-get -q -q -y install --no-install-recommends wget gnupg ca-certificates vim sendmail \
     &&  echo 'deb http://download.videolan.org/pub/debian/stable/ /' >> /etc/apt/sources.list.d/videolan.list \
     &&  wget -qO - https://download.videolan.org/pub/debian/videolan-apt.asc | apt-key add -
 RUN     apt-get -q -q update \

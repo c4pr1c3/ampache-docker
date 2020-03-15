@@ -11,7 +11,7 @@ services:
     image: c4pr1c3/ampache:$AMPACHE_VERSION
     container_name: ampache-$AMPACHE_VERSION
     volumes:
-      - ./music:/media:ro
+      - ./music:/media
       - ./db:/var/lib/mysql
     ports:
       - 8090:80
