@@ -29,6 +29,7 @@ RUN     mkdir -p /var/run/mysqld \
     &&  rm -rf /var/lib/mysql/* /var/www/* /etc/apache2/sites-enabled/* \
     &&  wget -qO - https://github.com/ampache/ampache/archive/$AMPACHE_VERSION.tar.gz \
           | tar -C /var/www -xzf - ampache-$AMPACHE_VERSION --strip=1 \
+    &&  find /var/www -iname "*.json" -execdir sed -i.bak 's#"dropbox/dropbox-sdk": "1.*"#"kunalvarma05/dropbox-php-sdk": "^0.2.1"#g' {} \; \
     &&  mv /var/www/rest/.htac* /var/www/rest/.htaccess \
     &&  mv /var/www/play/.htac* /var/www/play/.htaccess \
     &&  mv /var/www/channel/.htac* /var/www/channel/.htaccess
